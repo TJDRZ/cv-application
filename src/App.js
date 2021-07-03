@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Container from "./components/Container";
 import School from "./components/School";
 import Work from "./components/Work";
+import save from "./save";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <Container component={addSchool} type="School" />
       <Container component={addWork} type="Work" />
+      <button onClick={() => save()}>Save</button>
     </div>
   );
 }

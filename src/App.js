@@ -8,15 +8,25 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Container component={addSchool} type="School" />
-      <Container component={addWork} type="Work" />
+      <Container
+        component={_addSchool}
+        header="Education"
+        type="School"
+        title={true}
+      />
+      <Container
+        component={_addWork}
+        header="Work Experience"
+        type="Work"
+        title={true}
+      />
       <button onClick={() => save()}>Save</button>
     </div>
   );
 }
 
 // Support Functions
-const addSchool = (id) => <School key={id} />;
-const addWork = (id) => <Work key={id} />;
+const _addSchool = (id) => <School key={id} />;
+const _addWork = (id) => <Work key={id} />;
 
 export default App;

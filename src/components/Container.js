@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
+import "../styles/container.css";
 
 class Container extends Component {
   constructor(props) {
@@ -23,9 +24,12 @@ class Container extends Component {
   };
 
   render() {
+    const { header, type, title } = this.props;
     return (
       <div>
-        <button onClick={this.addItem}>Add {this.props.type} +</button>
+        <h3>{header}</h3>
+        {title ? <hr className="title-hr" /> : <hr className="task-hr" />}
+        <button onClick={this.addItem}>Add {type} +</button>
         <ul>
           {this.state.items.map((item) => (
             <li key={item.key}>

@@ -6,3 +6,13 @@
 .task-hr {
   width: 35%;
 }
+
+.title-li {
+  position: relative;
+  left: -10px;
+  font-weight: bolder;
+}
+
+.task-li {
+  font-weight: normal;
+}

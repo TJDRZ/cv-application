@@ -30,14 +30,27 @@ class Container extends Component {
         <h3>{header}</h3>
         {title ? <hr className="title-hr" /> : <hr className="task-hr" />}
         <button onClick={this.addItem}>Add {type} +</button>
-        <ul>
-          {this.state.items.map((item) => (
-            <li key={item.key}>
-              {item}
-              <button onClick={() => this.delete(item.key)}>DEL</button>
-            </li>
-          ))}
-        </ul>
+        {title ? (
+          <ul>
+            {this.state.items.map((item) => (
+              <li key={item.key} className="title-li">
+                <span>
+                  {item}
+                  <button onClick={() => this.delete(item.key)}>DEL</button>
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul>
+            {this.state.items.map((item) => (
+              <li key={item.key} className="task-li">
+                {item}
+                <button onClick={() => this.delete(item.key)}>DEL</button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   }

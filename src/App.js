@@ -3,6 +3,7 @@ import Container from "./components/Container";
 import School from "./components/School";
 import Work from "./components/Work";
 import save from "./save";
+import "./styles/style.css";
 
 function App() {
   return (

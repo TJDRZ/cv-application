@@ -1,0 +1,10 @@
+button {
+  box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 1);
+  background-color: rgba(235, 198, 149, 0.863);
+  border: dotted rgb(196, 104, 67);
+  margin: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -8,3 +8,9 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+@media print {
+  button {
+    display: none;
+  }
+}

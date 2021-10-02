@@ -1,60 +1,45 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
+function Input(props) {
+  const [text, setText] = useState("");
+  const [textSet, setTextSet] = useState(false);
 
-    this.state = {
-      text: "",
-      textSet: false,
-    };
-  }
-
-  update = (e) => {
-    this.setState(() => ({
-      text: e.target.value,
-    }));
+  const update = (e) => {
+    setText(e.target.value);
   };
 
-  submit = () => {
-    this.setState(() => ({
-      textSet: true,
-    }));
+  const submit = () => {
+    setTextSet(true);
   };
 
-  edit = () => {
-    this.setState(() => ({
-      textSet: false,
-    }));
+  const edit = () => {
+    setTextSet(false);
   };
 
-  render() {
-    const { text, textSet } = this.state;
-    const { type, placeholder, pattern } = this.props;
-    return (
-      <div>
-        {textSet ? (
-          <div>
-            <span>{text} </span>
-            <button onClick={this.edit}>Edit</button>
-          </div>
-        ) : (
-          <form onSubmit={this.submit}>
-            <label htmlFor={type}>{type}: </label>
-            <input
-              type="text"
-              name={type}
-              required
-              placeholder={placeholder}
-              pattern={pattern}
-              onChange={this.update}
-            />
-            <button type="submit">Submit</button>
-          </form>
-        )}
-      </div>
-    );
-  }
+  const { type, placeholder, pattern } = props;
+  return (
+    <div>
+      {textSet ? (
+        <div>
+          <span>{text} </span>
+          <button onClick={edit}>Edit</button>
+        </div>
+      ) : (
+        <form onSubmit={submit}>
+          <label htmlFor={type}>{type}: </label>
+          <input
+            type="text"
+            name={type}
+            required
+            placeholder={placeholder}
+            pattern={pattern}
+            onChange={update}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
 }
 
 export default Input;

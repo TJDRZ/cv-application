@@ -10,7 +10,8 @@ button:hover {
 }
 
 @media print {
-  button {
+  button,
+  h1 {
     display: none;
   }
 }

@@ -6,7 +6,8 @@ import "./styles/style.css";
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
+      <h1>CV Application:</h1>
       <Header />
       <Container
         component={_addSchool}
@@ -21,7 +22,7 @@ function App() {
         title={true}
       />
       <button onClick={() => window.print()}>Save</button>
-    </div>
+    </main>
   );
 }
 

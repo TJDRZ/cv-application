@@ -32,4 +32,4 @@ The Containter component can take the following props:
 Rest of UI components (Header, School, Work) up for use/deletion if used as a template for things other than CV-Application
 ```
 
-`save.js` created to hide all buttons and the <h1> on page and window.print() to allow pdf saving of CV to computer.
+`save.js` created to hide all buttons and the h1 on page and window.print() to allow pdf saving of CV to computer.

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 
-function Input(props) {
+type InputProps = {
+  type: string;
+  placeholder: string;
+  pattern?: string;
+};
+
+const Input = (props: InputProps) => {
+  const { type, placeholder, pattern } = props;
+
   const [text, setText] = useState("");
   const [textSet, setTextSet] = useState(false);
 
-  const update = (e) => {
+  const update = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
@@ -16,7 +24,6 @@ function Input(props) {
     setTextSet(false);
   };
 
-  const { type, placeholder, pattern } = props;
   return (
     <div>
       {textSet ? (
@@ -33,7 +40,7 @@ function Input(props) {
             required
             placeholder={placeholder}
             pattern={pattern}
-            onChange={update}
+            onChange={(e) => update(e)}
           />
           <button type="submit">Submit</button>
         </form>

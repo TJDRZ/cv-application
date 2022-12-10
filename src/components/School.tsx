@@ -1,7 +1,8 @@
+import React from "react";
 import Input from "./Input";
 import "../styles/list-container.css";
 
-function School() {
+const School = () => {
   return (
     <div className="list-container">
       <Input type="School Name" placeholder="Please Enter Your School" />

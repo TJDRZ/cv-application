@@ -2,18 +2,30 @@ import React, { useState } from "react";
 import uniqid from "uniqid";
 import "../styles/container.css";
 
-function Container(props) {
-  const [items, setItems] = useState([]);
+type ContainerProps = {
+  component: React.ReactNode;
+  header?: string;
+  type: string;
+  title: boolean;
+};
+
+type ContainerItem = {
+  key: string;
+  component: React.ReactNode;
+};
+
+const Container = (props: ContainerProps) => {
+  const { component, header, type, title } = props;
+
+  const [items, setItems] = useState<ContainerItem[]>([]);
 
   const addItem = () => {
-    setItems(items.concat(props.component(uniqid())));
+    setItems([...items, { key: uniqid(), component }]);
   };
 
-  const del = (key) => {
+  const del = (key: string) => {
     setItems(items.filter((item) => item.key !== key));
   };
-
-  const { header, type, title } = props;
 
   return (
     <div>
@@ -24,10 +36,8 @@ function Container(props) {
         <ul>
           {items.map((item) => (
             <li key={item.key} className="title-li">
-              <span>
-                {item}
-                <button onClick={() => del(item.key)}>DEL</button>
-              </span>
+              {item.component}
+              <button onClick={() => del(item.key)}>DEL</button>
             </li>
           ))}
         </ul>
@@ -35,7 +45,7 @@ function Container(props) {
         <ul>
           {items.map((item) => (
             <li key={item.key} className="task-li">
-              {item}
+              {item.component}
               <button onClick={() => del(item.key)}>DEL</button>
             </li>
           ))}
@@ -43,6 +53,6 @@ function Container(props) {
       )}
     </div>
   );
-}
+};
 
 export default Container;
